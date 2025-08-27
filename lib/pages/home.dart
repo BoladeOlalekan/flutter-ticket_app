@@ -34,9 +34,12 @@ class HomePage extends StatelessWidget {
                     ),
                     //IMAGE
                     Container(
-                      color: Colors.red,
-                      width: 100,
-                      height: 70,
+                      width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: Colors.red,
+                        borderRadius: BorderRadius.circular(10)
+                      ),
                     )
                   ]
                 ),
