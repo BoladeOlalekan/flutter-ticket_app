@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:ticket_app/base/navigation.dart';
 
 void main() {
   runApp(const MyApp());
+  SystemChrome.setSystemUIOverlayStyle(
+  SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent, // make status bar see-through
+    statusBarIconBrightness: Brightness.light, // for light or dark icons
+  ),
+);
+
 }
 
 class MyApp extends StatelessWidget {
