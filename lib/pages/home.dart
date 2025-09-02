@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
       //main body
       body: ListView(
         children: [
-          SizedBox(height: 30),
+          // SizedBox(height: 30),
           //GREET AND BOOK
           Container(
             padding: EdgeInsets.symmetric(horizontal: 20),
@@ -96,14 +96,23 @@ class HomePage extends StatelessWidget {
               children: [
                 //semi-heading
                 AppDoubleText(
-                  bigText: 'Upcoming Flights',
+                  bigText: 'Upcoming Flights', 
                   smallText: 'View all',
                 ),
 
                 SizedBox(height: 16),
 
                 //Ticket View scroll
-                TicketView(),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      TicketView(),
+                      TicketView(),
+                      TicketView(),
+                    ],
+                  )
+                ),
               ],
             )
           ),

@@ -3,6 +3,8 @@ import 'package:ticket_app/base/res/styles/app_styles.dart';
 import 'package:ticket_app/base/widgets/ticketView/dashed_line.dart';
 import 'package:ticket_app/base/widgets/ticketView/flight_path.dart';
 import 'package:ticket_app/base/widgets/ticketView/plane_dot.dart';
+import 'package:ticket_app/base/widgets/ticketView/text_style_ticket_low.dart';
+import 'package:ticket_app/base/widgets/ticketView/text_style_ticket_top.dart';
 
 class TicketView extends StatelessWidget {
   const TicketView({super.key});
@@ -12,7 +14,7 @@ class TicketView extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return SizedBox(
-      width: size.width+0.85,
+      width: size.width * 0.85,
       height: 180,
       child: Container(
         margin: EdgeInsets.only(right: 20),
@@ -33,11 +35,7 @@ class TicketView extends StatelessWidget {
                   //show departure and arrival
                   Row(
                     children: [
-                      Text(
-                        "NYC",
-                        style: AppStyles.textStyle.copyWith(color: Colors.white),
-                        
-                      ),
+                      TextStyleTicket(text: "NYC", textAlign: TextAlign.start,),
             
                       Expanded(child: Container()),
             
@@ -49,10 +47,7 @@ class TicketView extends StatelessWidget {
             
                       Expanded(child: Container()),
             
-                      Text(
-                        "LDN",
-                        style: AppStyles.textStyle.copyWith(color: Colors.white),
-                      )
+                      TextStyleTicket(text: "LDN", textAlign: TextAlign.end,)
                     ],
                   ),
             
@@ -61,25 +56,21 @@ class TicketView extends StatelessWidget {
                   //show flying time and location names
                   Row(
                     children: [
-                      Text(
-                        "New York",
-                        style: AppStyles.textStyle2.copyWith(color: Colors.white),
-                        
+                      SizedBox(
+                        width: 100,
+                        child: TextStyleTicketLow(text: "New York", textAlign: TextAlign.start,),
                       ),
             
                       Expanded(child: Container()),
             
-                      Text(
-                        "8H 30M",
-                        style: AppStyles.textStyle2.copyWith(color: Colors.white),
-                      ),
+                      TextStyleTicketLow(text: "8H 30M", textAlign: TextAlign.center,),
             
                       Expanded(child: Container()),
             
-                      Text(
-                        "London",
-                        style: AppStyles.textStyle2.copyWith(color: Colors.white),
-                      )
+                      SizedBox(
+                        width: 100,
+                        child: TextStyleTicketLow(text: "London", textAlign: TextAlign.end,),
+                      ),
                     ],
                   ),
             
@@ -142,58 +133,43 @@ class TicketView extends StatelessWidget {
                   //show departure and arrival
                   Row(
                     children: [
-                      Text(
-                        "1 MAY",
-                        style: AppStyles.textStyle.copyWith(color: Colors.white),
-                        
+                      SizedBox(
+                        width: 95,
+                        child: TextStyleTicket(text: "1 MAY", textAlign: TextAlign.start, )
                       ),
             
                       Expanded(child: Container()),
-            
-                      // PlaneDot(),
-                      
-                      // Expanded(child: FlightPath(totalWidth: size.width * 0.18)),
-            
-                      // PlaneDot(),
 
-                      Text(
-                        "08:00 AM",
-                        style: AppStyles.textStyle.copyWith(color: Colors.white),
-                        
-                      ),
+                      TextStyleTicket(text: "08:00 AM", textAlign: TextAlign.center),
 
                       Expanded(child: Container()),
             
-                      Text(
-                        "23",
-                        style: AppStyles.textStyle.copyWith(color: Colors.white),
+                      SizedBox(
+                        width: 95,
+                        child: TextStyleTicket(text: "23", textAlign: TextAlign.end,)
                       )
                     ],
                   ),
             
                   SizedBox(height: 3),
             
-                  //show flying time and location names
+                  //show flying time
                   Row(
                     children: [
-                      Text(
-                        "Date",
-                        style: AppStyles.textStyle2.copyWith(color: Colors.white),
-                        
+                      SizedBox(
+                        width: 95,
+                        child: TextStyleTicketLow(text: "Date", textAlign: TextAlign.start),
                       ),
             
                       Expanded(child: Container()),
             
-                      Text(
-                        "Departure time",
-                        style: AppStyles.textStyle2.copyWith(color: Colors.white),
-                      ),
+                      TextStyleTicketLow(text: "Departure time", textAlign: TextAlign.center),
             
                       Expanded(child: Container()),
             
-                      Text(
-                        "Number",
-                        style: AppStyles.textStyle2.copyWith(color: Colors.white),
+                      SizedBox(
+                        width: 95,
+                        child: TextStyleTicketLow(text: "Number", textAlign: TextAlign.end),
                       )
                     ],
                   ),
