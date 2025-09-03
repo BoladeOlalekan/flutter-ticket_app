@@ -2,6 +2,7 @@ import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:ticket_app/base/res/media.dart';
 import 'package:ticket_app/base/res/styles/app_styles.dart';
+import 'package:ticket_app/base/widgets/all_json.dart';
 import 'package:ticket_app/base/widgets/app_double_text.dart';
 import 'package:ticket_app/base/widgets/ticketView/ticket_view.dart';
 
@@ -98,6 +99,12 @@ class HomePage extends StatelessWidget {
                 AppDoubleText(
                   bigText: 'Upcoming Flights', 
                   smallText: 'View all',
+                  func: (){
+                    Navigator.pushNamed(
+                      context, 
+                      "all_tickets",
+                    );
+                  },
                 ),
 
                 SizedBox(height: 16),
@@ -106,16 +113,31 @@ class HomePage extends StatelessWidget {
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
-                    children: [
-                      TicketView(),
-                      TicketView(),
-                      TicketView(),
-                    ],
+                    children: ticketList.take(3).map((singleTicket) => 
+                    TicketView(ticket: singleTicket,)).toList(),
                   )
                 ),
               ],
             )
           ),
+
+          SizedBox(height: 30),
+
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                AppDoubleText(
+                  bigText: "Hotels",
+                  smallText: "View all",
+                  func: (){
+                    print("Open hotels!");
+                  },
+                )
+              ],
+            ),
+          )
         ]
       ),
     );
