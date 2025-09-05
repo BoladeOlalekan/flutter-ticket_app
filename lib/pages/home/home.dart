@@ -4,6 +4,7 @@ import 'package:ticket_app/base/res/media.dart';
 import 'package:ticket_app/base/res/styles/app_styles.dart';
 import 'package:ticket_app/base/widgets/all_json.dart';
 import 'package:ticket_app/base/widgets/app_double_text.dart';
+import 'package:ticket_app/base/widgets/hotelView/hotel_view.dart';
 import 'package:ticket_app/base/widgets/ticketView/ticket_view.dart';
 
 class HomePage extends StatelessWidget {
@@ -122,7 +123,8 @@ class HomePage extends StatelessWidget {
           ),
 
           SizedBox(height: 30),
-
+          
+          //Hotel
           Container(
             padding: EdgeInsets.symmetric(horizontal: 20),
             child: Column(
@@ -134,7 +136,17 @@ class HomePage extends StatelessWidget {
                   func: (){
                     print("Open hotels!");
                   },
-                )
+                ),
+
+                SizedBox(height: 16),
+
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: hotelList.take(2).map((singleHotel) => 
+                    HotelView(hotel: singleHotel,)).toList(),
+                  )
+                ),
               ],
             ),
           )

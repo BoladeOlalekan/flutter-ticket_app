@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
-import 'package:ticket_app/pages/home.dart';
-import 'package:ticket_app/pages/search.dart';
+import 'package:ticket_app/pages/home/home.dart';
+import 'package:ticket_app/pages/search/search_screen.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
