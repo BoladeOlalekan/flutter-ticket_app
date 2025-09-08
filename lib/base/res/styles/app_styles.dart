@@ -16,6 +16,9 @@ class AppStyles {
   static Color borderColor2 = const Color(0xff3ab8b8);
   static Color borderColor3 = const Color(0xffec6545);
   static Color circleColor = const Color(0xff189999);
+  static Color dotColor = const Color(0xff8accf7);
+  static Color planeColor = const Color(0xff8accf7);
+  static Color pathColor = const Color(0xff8accf7);
 
   static TextStyle textStyle = TextStyle(
     fontSize: 16,

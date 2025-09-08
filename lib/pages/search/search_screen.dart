@@ -22,7 +22,10 @@ class SearchPage extends StatelessWidget {
             style: AppStyles.header1.copyWith(fontSize: 35),
           ),
           SizedBox(height: 20,),
-          AppTicketTabs(),
+          AppTicketTabs(
+            leftText: "Airline Tickets",
+            rightText: "Hotels",
+          ),
 
           SizedBox(height: 30,),
 

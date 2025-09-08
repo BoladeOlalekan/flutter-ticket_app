@@ -9,7 +9,14 @@ import 'package:ticket_app/base/widgets/ticketView/text_style_ticket_top.dart';
 class TicketView extends StatelessWidget {
   final Map<String, dynamic> ticket;
   final bool wholeScreen;
-  const TicketView({super.key, required this.ticket, this.wholeScreen = false});
+  final Color? topColor;
+  final Color? bottomColor;
+  final Color? textColor;
+  final Color? dotColor;
+  final Color? planeColor;
+  final Color? pathColor;
+
+  const TicketView({super.key, required this.ticket, this.wholeScreen = false, this.topColor, this.bottomColor, this.textColor, this.dotColor, this.planeColor, this.pathColor});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +33,7 @@ class TicketView extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: AppStyles.ticketBlue,
+                color: topColor ?? AppStyles.ticketBlue,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(21),
                   topRight: Radius.circular(21)
@@ -37,19 +44,36 @@ class TicketView extends StatelessWidget {
                   //show departure and arrival
                   Row(
                     children: [
-                      TextStyleTicket(text: ticket["from"]["code"], textAlign: TextAlign.start,),
+                      TextStyleTicket(
+                        text: ticket["from"]["code"], 
+                        textAlign: TextAlign.start,
+                        color: textColor ?? Colors.white,
+                      ),
             
                       Expanded(child: Container()),
             
-                      PlaneDot(),
+                      PlaneDot(
+                        color: dotColor ?? Colors.white,
+                      ),
                       
-                      Expanded(child: FlightPath(totalWidth: size.width * 0.18)),
+                      Expanded(child: FlightPath(
+                          totalWidth: size.width * 0.18,
+                          colorPath: pathColor ?? Colors.white,
+                          colorPlane: planeColor ?? Colors.white,
+                        )
+                      ),
             
-                      PlaneDot(),
+                      PlaneDot(
+                        color: dotColor ?? Colors.white,
+                      ),
             
                       Expanded(child: Container()),
             
-                      TextStyleTicket(text: ticket["to"]["code"], textAlign: TextAlign.end,)
+                      TextStyleTicket(
+                        text: ticket["to"]["code"], 
+                        textAlign: TextAlign.end,
+                        color: textColor ?? Colors.white,
+                        )
                     ],
                   ),
             
@@ -60,18 +84,30 @@ class TicketView extends StatelessWidget {
                     children: [
                       SizedBox(
                         width: 100,
-                        child: TextStyleTicketLow(text: ticket["from"]["name"], textAlign: TextAlign.start,),
+                        child: TextStyleTicketLow(
+                          text: ticket["from"]["name"], 
+                          textAlign: TextAlign.start,
+                          color: textColor ?? Colors.white,
+                        ),
                       ),
             
                       Expanded(child: Container()),
             
-                      TextStyleTicketLow(text: ticket["flying_time"], textAlign: TextAlign.center,),
+                      TextStyleTicketLow(
+                        text: ticket["flying_time"], 
+                        textAlign: TextAlign.center,
+                        color: textColor ?? Colors.white,
+                      ),
             
                       Expanded(child: Container()),
             
                       SizedBox(
                         width: 100,
-                        child: TextStyleTicketLow(text: ticket["to"]["name"], textAlign: TextAlign.end,),
+                        child: TextStyleTicketLow(
+                          text: ticket["to"]["name"], 
+                          textAlign: TextAlign.end,
+                          color: textColor ?? Colors.white,
+                        ),
                       ),
                     ],
                   ),
@@ -101,7 +137,11 @@ class TicketView extends StatelessWidget {
                     ),
                   ),
 
-                  Expanded(child: DashedLine(dashCount: 20, width: 1,),),
+                  Expanded(child: DashedLine(
+                    dashCount: 20, 
+                    width: 1,
+                    color: pathColor ?? Colors.white,),
+                  ),
             
                   SizedBox(
                     height: 20,
@@ -124,7 +164,7 @@ class TicketView extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: AppStyles.ticketOrange,
+                color: bottomColor ?? AppStyles.ticketOrange,
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(21),
                   bottomRight: Radius.circular(21)
@@ -137,18 +177,30 @@ class TicketView extends StatelessWidget {
                     children: [
                       SizedBox(
                         width: 95,
-                        child: TextStyleTicket(text: ticket["date"], textAlign: TextAlign.start, )
+                        child: TextStyleTicket(
+                          text: ticket["date"], 
+                          textAlign: TextAlign.start, 
+                          color: textColor ?? Colors.white,
+                        )
                       ),
             
                       Expanded(child: Container()),
 
-                      TextStyleTicket(text: ticket["departure_time"], textAlign: TextAlign.center),
+                      TextStyleTicket(
+                        text: ticket["departure_time"], 
+                        textAlign: TextAlign.center,
+                        color: textColor ?? Colors.white,
+                      ),
 
                       Expanded(child: Container()),
             
                       SizedBox(
                         width: 95,
-                        child: TextStyleTicket(text: ticket["number"].toString(), textAlign: TextAlign.end,)
+                        child: TextStyleTicket(
+                          text: ticket["number"].toString(), 
+                          textAlign: TextAlign.end,
+                          color: textColor ?? Colors.white,
+                        )
                       )
                     ],
                   ),
@@ -160,18 +212,30 @@ class TicketView extends StatelessWidget {
                     children: [
                       SizedBox(
                         width: 95,
-                        child: TextStyleTicketLow(text: "Date", textAlign: TextAlign.start),
+                        child: TextStyleTicketLow(
+                          text: "Date", 
+                          textAlign: TextAlign.start,
+                          color: textColor ?? Colors.white,
+                        ),
                       ),
             
                       Expanded(child: Container()),
             
-                      TextStyleTicketLow(text: "Departure time", textAlign: TextAlign.center),
+                      TextStyleTicketLow(
+                        text: "Departure time", 
+                        textAlign: TextAlign.center,
+                        color: textColor ?? Colors.white,
+                      ),
             
                       Expanded(child: Container()),
             
                       SizedBox(
                         width: 95,
-                        child: TextStyleTicketLow(text: "Number", textAlign: TextAlign.end),
+                        child: TextStyleTicketLow(
+                          text: "Number", 
+                          textAlign: TextAlign.end,
+                          color: textColor ?? Colors.white,
+                        ),
                       )
                     ],
                   ),

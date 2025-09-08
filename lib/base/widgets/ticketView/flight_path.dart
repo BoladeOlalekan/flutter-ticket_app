@@ -4,8 +4,10 @@ import 'package:ticket_app/base/widgets/ticketView/dashed_line.dart';
 
 class FlightPath extends StatelessWidget {
   final double totalWidth;
+  final Color colorPath;
+  final Color colorPlane;
 
-  const FlightPath({super.key, required this.totalWidth});
+  const FlightPath({super.key, required this.totalWidth, required this.colorPath, required this.colorPlane});
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +17,14 @@ class FlightPath extends StatelessWidget {
     return Stack(
       alignment: Alignment.center,
       children: [
-        DashedLine(width: totalWidth, dashCount: dashCount),
+        DashedLine(
+          width: totalWidth, 
+          dashCount: dashCount,
+          color: colorPath,
+        ),
         Icon(FluentSystemIcons.ic_fluent_airplane_filled, 
-          color: Colors.white, size: 20
+          color: colorPlane, 
+          size: 20
         ),
       ],
     );

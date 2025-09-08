@@ -5,14 +5,15 @@ class TextStyleTicketLow extends StatelessWidget {
 
   final String text;
   final TextAlign textAlign;
+  final Color color;
 
-  const TextStyleTicketLow({super.key, required this.text, required this.textAlign});
+  const TextStyleTicketLow({super.key, required this.text, required this.textAlign, required this.color});
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: AppStyles.textStyle2.copyWith(color: Colors.white),
+      style: AppStyles.textStyle2.copyWith(color: color),
       textAlign: textAlign,
     );
   }

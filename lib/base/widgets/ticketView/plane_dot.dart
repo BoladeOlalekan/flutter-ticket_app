@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class PlaneDot extends StatelessWidget {
-  const PlaneDot({super.key});
+  final Color color;
+  const PlaneDot({super.key, required this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +11,7 @@ class PlaneDot extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border.all(
           width: 2.5,
-          color: Colors.white
+          color: color,
         ),
         borderRadius: BorderRadius.circular(20)
       ),

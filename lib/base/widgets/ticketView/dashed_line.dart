@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 class DashedLine extends StatelessWidget {
   final double width;
   final int dashCount;
+  final Color color;
 
-  const DashedLine({super.key, required this.width, required this.dashCount});
+  const DashedLine({super.key, required this.width, required this.dashCount, required this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class DashedLine extends StatelessWidget {
           return Container(
             width: 3,
             height: 1,
-            color: Colors.white,
+            color: color,
           );
         }),
       ),
