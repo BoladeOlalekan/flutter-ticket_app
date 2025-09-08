@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ticket_app/base/res/styles/app_styles.dart';
 
 class AppTicketTabs extends StatelessWidget {
   const AppTicketTabs({super.key});
@@ -7,6 +8,7 @@ class AppTicketTabs extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Container(
+      padding: EdgeInsets.all(2),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
         color: Color(0xfff4f6fd)
@@ -17,12 +19,12 @@ class AppTicketTabs extends StatelessWidget {
             padding: EdgeInsets.symmetric(vertical: 7),
             width: size.width * .44,
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(50),
-                  bottomLeft: Radius.circular(50),
-                ),
-              color: Colors.amber
+              borderRadius: BorderRadius.horizontal(
+                left: Radius.circular(50)
+              ),
+              color: AppStyles.borderWhite
             ),
+            
             child: Center(
               child: Text(
                 "Airline Tickets"
@@ -33,6 +35,12 @@ class AppTicketTabs extends StatelessWidget {
           Container(
             padding: EdgeInsets.symmetric(vertical: 7),
             width: size.width * .44,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.horizontal(
+                right: Radius.circular(50)
+              ),
+              color: Colors.transparent
+            ),
             child: Center(
               child: Text(
                 "Hotels"
