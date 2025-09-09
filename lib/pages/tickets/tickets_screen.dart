@@ -10,25 +10,46 @@ import 'package:ticket_app/base/widgets/ticketView/ticket_view.dart';
 import 'package:ticket_app/pages/search/search_widgets/app_ticket_tabs.dart';
 import 'package:ticket_app/pages/tickets/ticket_widgets/ticket_positioned_circle.dart';
 
-class TicketsScreen extends StatelessWidget {
+class TicketsScreen extends StatefulWidget {
   const TicketsScreen({super.key});
 
   @override
+  State<TicketsScreen> createState() => _TicketsScreenState();
+}
+
+class _TicketsScreenState extends State<TicketsScreen> {
+
+  late int ticketIndex = 0;
+
+  @override
+  void didChangeDependencies() {
+    final args = ModalRoute.of(context)?.settings.arguments;
+    if (args is Map && args.containsKey('index')) {
+      ticketIndex = args['index'] as int;
+    } else {
+      ticketIndex = 0;
+    }
+
+    super.didChangeDependencies();
+  }
+
+
+  @override
   Widget build(BuildContext context) {
-    //final size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: AppStyles.backgroundColor,
+        title: Text(
+          "Tickets",
+          style: AppStyles.header1.copyWith(fontSize: 35),
+        ),
+      ),
       backgroundColor: AppStyles.backgroundColor,
       body: Stack(
         children: [
           ListView(
-            padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
             children: [
-              SizedBox(height: 40,),
-              Text(
-                "Tickets",
-                style: AppStyles.header1.copyWith(fontSize: 35),
-              ),
-              SizedBox(height: 20,),
               AppTicketTabs(
                 leftText: "Upcoming",
                 rightText: "Previous",
@@ -40,7 +61,7 @@ class TicketsScreen extends StatelessWidget {
               Container(
                 padding: EdgeInsets.only(left: 20),
                 child: TicketView(
-                  ticket: ticketList[0],
+                  ticket: ticketList[ticketIndex],
                   topColor: Colors.white,
                   bottomColor: Colors.white,
                   topTextColor: AppStyles.textColor,
@@ -279,7 +300,7 @@ class TicketsScreen extends StatelessWidget {
               Container(
                 padding: EdgeInsets.only(left: 20),
                 child: TicketView(
-                  ticket: ticketList[0],
+                  ticket: ticketList[ticketIndex],
                 ),
               ),
             ],
