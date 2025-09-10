@@ -135,7 +135,10 @@ class HomePage extends StatelessWidget {
                   bigText: "Hotels",
                   smallText: "View all",
                   func: (){
-                    print("Open hotels!");
+                    Navigator.pushNamed(
+                      context, 
+                      AppRoutes.allHotels,
+                    );
                   },
                 ),
 
@@ -144,7 +147,7 @@ class HomePage extends StatelessWidget {
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
-                    children: hotelList.take(2).map((singleHotel) => 
+                    children: hotelList.take(3).map((singleHotel) => 
                     HotelView(hotel: singleHotel,)).toList(),
                   )
                 ),

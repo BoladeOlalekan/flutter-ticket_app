@@ -32,6 +32,19 @@ class AppStyles {
     fontWeight: FontWeight.bold,
   );
 
+  static TextStyle hotelHeader  = TextStyle(
+    color: borderColor,
+    fontSize: 30,
+    fontWeight: FontWeight.bold,
+    shadows: [
+      Shadow(
+        blurRadius: 10.0,
+        color: AppStyles.primaryColor,
+        offset: Offset(2.0, 2.0)
+      )
+    ]
+  );
+
   static TextStyle header2  = const TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.w400,
@@ -51,6 +64,12 @@ class AppStyles {
 
   static TextStyle textStyle3  = TextStyle(
     fontSize: 20,
+    color: borderColor,
+    fontWeight: FontWeight.w500
+  );
+
+  static TextStyle textStyle4  = TextStyle(
+    fontSize: 18,
     color: borderColor,
     fontWeight: FontWeight.w500
   );
